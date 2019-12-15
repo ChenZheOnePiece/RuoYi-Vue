@@ -28,7 +28,7 @@ import com.ruoyi.framework.web.page.TableDataInfo;
  * @date 2019-12-15
  */
 @RestController
-@RequestMapping("/system/record")
+@RequestMapping("/jiayin/record")
 public class HistoryRecordController extends BaseController
 {
     @Autowired
@@ -37,7 +37,7 @@ public class HistoryRecordController extends BaseController
     /**
      * 查询【请填写功能名称】列表
      */
-    @PreAuthorize("@ss.hasPermi('system:record:list')")
+    @PreAuthorize("@ss.hasPermi('jiayin:record:list')")
     @GetMapping("/list")
     public TableDataInfo list(HistoryRecord historyRecord)
     {
@@ -49,7 +49,7 @@ public class HistoryRecordController extends BaseController
     /**
      * 导出【请填写功能名称】列表
      */
-    @PreAuthorize("@ss.hasPermi('system:record:export')")
+    @PreAuthorize("@ss.hasPermi('jiayin:record:export')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.EXPORT)
     @GetMapping("/export")
     public AjaxResult export(HistoryRecord HistoryRecord)
@@ -62,7 +62,7 @@ public class HistoryRecordController extends BaseController
     /**
      * 获取【请填写功能名称】详细信息
      */
-    @PreAuthorize("@ss.hasPermi('system:record:query')")
+    @PreAuthorize("@ss.hasPermi('jiayin:record:query')")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") String id)
     {
@@ -72,7 +72,7 @@ public class HistoryRecordController extends BaseController
     /**
      * 新增【请填写功能名称】
      */
-    @PreAuthorize("@ss.hasPermi('system:record:add')")
+    @PreAuthorize("@ss.hasPermi('jiayin:record:add')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody HistoryRecord HistoryRecord)
@@ -83,7 +83,7 @@ public class HistoryRecordController extends BaseController
     /**
      * 修改【请填写功能名称】
      */
-    @PreAuthorize("@ss.hasPermi('system:record:edit')")
+    @PreAuthorize("@ss.hasPermi('jiayin:record:edit')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody HistoryRecord HistoryRecord)
@@ -94,7 +94,7 @@ public class HistoryRecordController extends BaseController
     /**
      * 删除【请填写功能名称】
      */
-    @PreAuthorize("@ss.hasPermi('system:record:remove')")
+    @PreAuthorize("@ss.hasPermi('jiayin:record:remove')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable String[] ids)

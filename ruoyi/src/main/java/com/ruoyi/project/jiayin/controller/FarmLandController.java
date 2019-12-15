@@ -37,7 +37,7 @@ public class FarmLandController extends BaseController
     /**
      * 查询【请填写功能名称】列表
      */
-    @PreAuthorize("@ss.hasPermi('system:land:list')")
+    @PreAuthorize("@ss.hasPermi('jiayin:farmland:list')")
     @GetMapping("/list")
     public TableDataInfo list(FarmLand FarmLand)
     {
@@ -49,7 +49,7 @@ public class FarmLandController extends BaseController
     /**
      * 导出【请填写功能名称】列表
      */
-    @PreAuthorize("@ss.hasPermi('system:land:export')")
+    @PreAuthorize("@ss.hasPermi('jiayin:farmland:export')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.EXPORT)
     @GetMapping("/export")
     public AjaxResult export(FarmLand FarmLand)
@@ -62,7 +62,7 @@ public class FarmLandController extends BaseController
     /**
      * 获取【请填写功能名称】详细信息
      */
-    @PreAuthorize("@ss.hasPermi('system:land:query')")
+    @PreAuthorize("@ss.hasPermi('jiayin:farmland:query')")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") String id)
     {
@@ -72,7 +72,7 @@ public class FarmLandController extends BaseController
     /**
      * 新增【请填写功能名称】
      */
-    @PreAuthorize("@ss.hasPermi('system:land:add')")
+    @PreAuthorize("@ss.hasPermi('jiayin:farmland:add')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody FarmLand FarmLand)
@@ -83,7 +83,7 @@ public class FarmLandController extends BaseController
     /**
      * 修改【请填写功能名称】
      */
-    @PreAuthorize("@ss.hasPermi('system:land:edit')")
+    @PreAuthorize("@ss.hasPermi('jiayin:farmland:edit')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody FarmLand FarmLand)
@@ -94,7 +94,7 @@ public class FarmLandController extends BaseController
     /**
      * 删除【请填写功能名称】
      */
-    @PreAuthorize("@ss.hasPermi('system:land:remove')")
+    @PreAuthorize("@ss.hasPermi('jiayin:farmland:remove')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable String[] ids)

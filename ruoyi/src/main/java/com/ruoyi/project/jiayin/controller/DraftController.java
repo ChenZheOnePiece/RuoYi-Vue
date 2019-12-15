@@ -28,7 +28,7 @@ import com.ruoyi.framework.web.page.TableDataInfo;
  * @date 2019-12-15
  */
 @RestController
-@RequestMapping("/system/draft")
+@RequestMapping("/jiayin/draft")
 public class DraftController extends BaseController
 {
     @Autowired
@@ -37,7 +37,7 @@ public class DraftController extends BaseController
     /**
      * 查询【请填写功能名称】列表
      */
-    @PreAuthorize("@ss.hasPermi('system:draft:list')")
+    @PreAuthorize("@ss.hasPermi('jiayin:draft:list')")
     @GetMapping("/list")
     public TableDataInfo list(Draft draft)
     {
@@ -49,7 +49,7 @@ public class DraftController extends BaseController
     /**
      * 导出【请填写功能名称】列表
      */
-    @PreAuthorize("@ss.hasPermi('system:draft:export')")
+    @PreAuthorize("@ss.hasPermi('jiayin:draft:export')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.EXPORT)
     @GetMapping("/export")
     public AjaxResult export(Draft draft)
@@ -62,7 +62,7 @@ public class DraftController extends BaseController
     /**
      * 获取【请填写功能名称】详细信息
      */
-    @PreAuthorize("@ss.hasPermi('system:draft:query')")
+    @PreAuthorize("@ss.hasPermi('jiayin:draft:query')")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") String id)
     {
@@ -72,7 +72,7 @@ public class DraftController extends BaseController
     /**
      * 新增【请填写功能名称】
      */
-    @PreAuthorize("@ss.hasPermi('system:draft:add')")
+    @PreAuthorize("@ss.hasPermi('jiayin:draft:add')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody Draft draft)
@@ -83,7 +83,7 @@ public class DraftController extends BaseController
     /**
      * 修改【请填写功能名称】
      */
-    @PreAuthorize("@ss.hasPermi('system:draft:edit')")
+    @PreAuthorize("@ss.hasPermi('jiayin:draft:edit')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody Draft draft)
@@ -94,7 +94,7 @@ public class DraftController extends BaseController
     /**
      * 删除【请填写功能名称】
      */
-    @PreAuthorize("@ss.hasPermi('system:draft:remove')")
+    @PreAuthorize("@ss.hasPermi('jiayin:draft:remove')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable String[] ids)

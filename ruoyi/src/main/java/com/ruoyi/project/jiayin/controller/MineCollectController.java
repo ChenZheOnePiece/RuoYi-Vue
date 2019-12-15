@@ -28,7 +28,7 @@ import com.ruoyi.framework.web.page.TableDataInfo;
  * @date 2019-12-15
  */
 @RestController
-@RequestMapping("/system/collect")
+@RequestMapping("/jiayin/collect")
 public class MineCollectController extends BaseController
 {
     @Autowired
@@ -37,7 +37,7 @@ public class MineCollectController extends BaseController
     /**
      * 查询【请填写功能名称】列表
      */
-    @PreAuthorize("@ss.hasPermi('system:collect:list')")
+    @PreAuthorize("@ss.hasPermi('jiayin:collect:list')")
     @GetMapping("/list")
     public TableDataInfo list(MineCollect mineCollect)
     {
@@ -49,7 +49,7 @@ public class MineCollectController extends BaseController
     /**
      * 导出【请填写功能名称】列表
      */
-    @PreAuthorize("@ss.hasPermi('system:collect:export')")
+    @PreAuthorize("@ss.hasPermi('jiayin:collect:export')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.EXPORT)
     @GetMapping("/export")
     public AjaxResult export(MineCollect mineCollect)
@@ -62,7 +62,7 @@ public class MineCollectController extends BaseController
     /**
      * 获取【请填写功能名称】详细信息
      */
-    @PreAuthorize("@ss.hasPermi('system:collect:query')")
+    @PreAuthorize("@ss.hasPermi('jiayin:collect:query')")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") String id)
     {
@@ -72,7 +72,7 @@ public class MineCollectController extends BaseController
     /**
      * 新增【请填写功能名称】
      */
-    @PreAuthorize("@ss.hasPermi('system:collect:add')")
+    @PreAuthorize("@ss.hasPermi('jiayin:collect:add')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody MineCollect MineCollect)
@@ -83,7 +83,7 @@ public class MineCollectController extends BaseController
     /**
      * 修改【请填写功能名称】
      */
-    @PreAuthorize("@ss.hasPermi('system:collect:edit')")
+    @PreAuthorize("@ss.hasPermi('jiayin:collect:edit')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody MineCollect mineCollect)
@@ -94,7 +94,7 @@ public class MineCollectController extends BaseController
     /**
      * 删除【请填写功能名称】
      */
-    @PreAuthorize("@ss.hasPermi('system:collect:remove')")
+    @PreAuthorize("@ss.hasPermi('jiayin:collect:remove')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable String[] ids)
