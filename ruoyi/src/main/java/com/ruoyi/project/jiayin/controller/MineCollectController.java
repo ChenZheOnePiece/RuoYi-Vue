@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ruoyi.project.jiayin.domain.MineCollect;
 import com.ruoyi.project.jiayin.service.IMineCollectService;
+import io.swagger.annotations.Api;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,7 @@ import com.ruoyi.framework.web.page.TableDataInfo;
  * @author ruoyi
  * @date 2019-12-15
  */
+@Api("我的收藏管理")
 @RestController
 @RequestMapping("/jiayin/collect")
 public class MineCollectController extends BaseController

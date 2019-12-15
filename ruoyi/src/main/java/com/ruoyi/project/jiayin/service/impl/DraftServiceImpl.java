@@ -27,9 +27,9 @@ public class DraftServiceImpl implements IDraftService
      * @return 【请填写功能名称】
      */
     @Override
-    public Draft selectJiayinDraftById(String id)
+    public Draft selectDraftById(String id)
     {
-        return draftMapper.selectJiayinDraftById(id);
+        return draftMapper.selectDraftById(id);
     }
 
     /**
@@ -39,9 +39,9 @@ public class DraftServiceImpl implements IDraftService
      * @return 【请填写功能名称】
      */
     @Override
-    public List<Draft> selectJiayinDraftList(Draft draft)
+    public List<Draft> selectDraftList(Draft draft)
     {
-        return draftMapper.selectJiayinDraftList(draft);
+        return draftMapper.selectDraftList(draft);
     }
 
     /**
@@ -51,10 +51,10 @@ public class DraftServiceImpl implements IDraftService
      * @return 结果
      */
     @Override
-    public int insertJiayinDraft(Draft draft)
+    public int insertDraft(Draft draft)
     {
         draft.setCreateTime(DateUtils.getNowDate());
-        return draftMapper.insertJiayinDraft(draft);
+        return draftMapper.insertDraft(draft);
     }
 
     /**
@@ -64,10 +64,10 @@ public class DraftServiceImpl implements IDraftService
      * @return 结果
      */
     @Override
-    public int updateJiayinDraft(Draft draft)
+    public int updateDraft(Draft draft)
     {
         draft.setUpdateTime(DateUtils.getNowDate());
-        return draftMapper.updateJiayinDraft(draft);
+        return draftMapper.updateDraft(draft);
     }
 
     /**
@@ -77,9 +77,9 @@ public class DraftServiceImpl implements IDraftService
      * @return 结果
      */
     @Override
-    public int deleteJiayinDraftByIds(String[] ids)
+    public int deleteDraftByIds(String[] ids)
     {
-        return draftMapper.deleteJiayinDraftByIds(ids);
+        return draftMapper.deleteDraftByIds(ids);
     }
 
     /**
@@ -89,8 +89,8 @@ public class DraftServiceImpl implements IDraftService
      * @return 结果
      */
     @Override
-    public int deleteJiayinDraftById(String id)
+    public int deleteDraftById(String id)
     {
-        return draftMapper.deleteJiayinDraftById(id);
+        return draftMapper.deleteDraftById(id);
     }
 }

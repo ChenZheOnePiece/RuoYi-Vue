@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ruoyi.project.jiayin.domain.HistoryRecord;
 import com.ruoyi.project.jiayin.service.IHistoryRecordService;
+import io.swagger.annotations.Api;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,7 @@ import com.ruoyi.framework.web.page.TableDataInfo;
  * @author ruoyi
  * @date 2019-12-15
  */
+@Api("历史记录管理")
 @RestController
 @RequestMapping("/jiayin/record")
 public class HistoryRecordController extends BaseController

@@ -19,31 +19,31 @@ public interface DraftMapper
      * @param id 【请填写功能名称】ID
      * @return 【请填写功能名称】
      */
-    public Draft selectJiayinDraftById(String id);
+    public Draft selectDraftById(String id);
 
     /**
      * 查询【请填写功能名称】列表
      * 
-     * @param jiayinDraft 【请填写功能名称】
+     * @param Draft 【请填写功能名称】
      * @return 【请填写功能名称】集合
      */
-    public List<Draft> selectJiayinDraftList(Draft jiayinDraft);
+    public List<Draft> selectDraftList(Draft Draft);
 
     /**
      * 新增【请填写功能名称】
      * 
-     * @param jiayinDraft 【请填写功能名称】
+     * @param Draft 【请填写功能名称】
      * @return 结果
      */
-    public int insertJiayinDraft(Draft jiayinDraft);
+    public int insertDraft(Draft Draft);
 
     /**
      * 修改【请填写功能名称】
      * 
-     * @param jiayinDraft 【请填写功能名称】
+     * @param Draft 【请填写功能名称】
      * @return 结果
      */
-    public int updateJiayinDraft(Draft jiayinDraft);
+    public int updateDraft(Draft Draft);
 
     /**
      * 删除【请填写功能名称】
@@ -51,7 +51,7 @@ public interface DraftMapper
      * @param id 【请填写功能名称】ID
      * @return 结果
      */
-    public int deleteJiayinDraftById(String id);
+    public int deleteDraftById(String id);
 
     /**
      * 批量删除【请填写功能名称】
@@ -59,5 +59,5 @@ public interface DraftMapper
      * @param ids 需要删除的数据ID
      * @return 结果
      */
-    public int deleteJiayinDraftByIds(String[] ids);
+    public int deleteDraftByIds(String[] ids);
 }

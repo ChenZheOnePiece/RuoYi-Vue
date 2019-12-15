@@ -17,7 +17,7 @@ public interface IDraftService
      * @param id 【请填写功能名称】ID
      * @return 【请填写功能名称】
      */
-    public Draft selectJiayinDraftById(String id);
+    public Draft selectDraftById(String id);
 
     /**
      * 查询【请填写功能名称】列表
@@ -25,7 +25,7 @@ public interface IDraftService
      * @param draft 【请填写功能名称】
      * @return 【请填写功能名称】集合
      */
-    public List<Draft> selectJiayinDraftList(Draft draft);
+    public List<Draft> selectDraftList(Draft draft);
 
     /**
      * 新增【请填写功能名称】
@@ -33,7 +33,7 @@ public interface IDraftService
      * @param draft 【请填写功能名称】
      * @return 结果
      */
-    public int insertJiayinDraft(Draft draft);
+    public int insertDraft(Draft draft);
 
     /**
      * 修改【请填写功能名称】
@@ -41,7 +41,7 @@ public interface IDraftService
      * @param draft 【请填写功能名称】
      * @return 结果
      */
-    public int updateJiayinDraft(Draft draft);
+    public int updateDraft(Draft draft);
 
     /**
      * 批量删除【请填写功能名称】
@@ -49,7 +49,7 @@ public interface IDraftService
      * @param ids 需要删除的【请填写功能名称】ID
      * @return 结果
      */
-    public int deleteJiayinDraftByIds(String[] ids);
+    public int deleteDraftByIds(String[] ids);
 
     /**
      * 删除【请填写功能名称】信息
@@ -57,5 +57,5 @@ public interface IDraftService
      * @param id 【请填写功能名称】ID
      * @return 结果
      */
-    public int deleteJiayinDraftById(String id);
+    public int deleteDraftById(String id);
 }

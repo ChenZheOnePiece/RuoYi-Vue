@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ruoyi.project.system.mapper.JiayinDraftMapper">
+<mapper namespace="com.ruoyi.project.system.mapper.DraftMapper">
     
-    <resultMap type="JiayinDraft" id="JiayinDraftResult">
+    <resultMap type="Draft" id="DraftResult">
         <result property="id"    column="id"    />
         <result property="area"    column="area"    />
         <result property="price"    column="price"    />
@@ -21,12 +21,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="landType"    column="land_type"    />
     </resultMap>
 
-    <sql id="selectJiayinDraftVo">
+    <sql id="selectDraftVo">
         select id, area, price, term, region, distance_retirement, land_introduce, title, transaction_type, del_flag, create_time, update_time, status, land_type from jiayin_draft
     </sql>
 
-    <select id="selectJiayinDraftList" parameterType="JiayinDraft" resultMap="JiayinDraftResult">
-        <include refid="selectJiayinDraftVo"/>
+    <select id="selectDraftList" parameterType="Draft" resultMap="DraftResult">
+        <include refid="selectDraftVo"/>
         <where>  
             <if test="area != null "> and area = #{area}</if>
             <if test="price != null "> and price = #{price}</if>
@@ -41,12 +41,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </where>
     </select>
     
-    <select id="selectJiayinDraftById" parameterType="String" resultMap="JiayinDraftResult">
-        <include refid="selectJiayinDraftVo"/>
+    <select id="selectDraftById" parameterType="String" resultMap="DraftResult">
+        <include refid="selectDraftVo"/>
         where id = #{id}
     </select>
         
-    <insert id="insertJiayinDraft" parameterType="JiayinDraft">
+    <insert id="insertDraft" parameterType="Draft">
         insert into jiayin_draft
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null  and id != ''">id,</if>
@@ -82,7 +82,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
     </insert>
 
-    <update id="updateJiayinDraft" parameterType="JiayinDraft">
+    <update id="updateDraft" parameterType="Draft">
         update jiayin_draft
         <trim prefix="SET" suffixOverrides=",">
             <if test="area != null ">area = #{area},</if>
@@ -102,11 +102,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </update>
 
-    <delete id="deleteJiayinDraftById" parameterType="String">
+    <delete id="deleteDraftById" parameterType="String">
         delete from jiayin_draft where id = #{id}
     </delete>
 
-    <delete id="deleteJiayinDraftByIds" parameterType="String">
+    <delete id="deleteDraftByIds" parameterType="String">
         delete from jiayin_draft where id in 
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}

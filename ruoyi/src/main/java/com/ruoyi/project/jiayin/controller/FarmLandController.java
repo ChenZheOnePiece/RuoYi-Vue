@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.ruoyi.project.jiayin.domain.FarmLand;
 import com.ruoyi.project.jiayin.service.IFarmLandService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +29,7 @@ import com.ruoyi.framework.web.page.TableDataInfo;
  * @author ruoyi
  * @date 2019-12-15
  */
+@Api("土地管理")
 @RestController
 @RequestMapping("/jiayin/farmland")
 public class FarmLandController extends BaseController
@@ -37,6 +40,7 @@ public class FarmLandController extends BaseController
     /**
      * 查询【请填写功能名称】列表
      */
+    @ApiOperation("查询所有土地")
     @PreAuthorize("@ss.hasPermi('jiayin:farmland:list')")
     @GetMapping("/list")
     public TableDataInfo list(FarmLand FarmLand)
@@ -62,6 +66,7 @@ public class FarmLandController extends BaseController
     /**
      * 获取【请填写功能名称】详细信息
      */
+    @ApiOperation("根据主键查询土地")
     @PreAuthorize("@ss.hasPermi('jiayin:farmland:query')")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") String id)
@@ -72,6 +77,7 @@ public class FarmLandController extends BaseController
     /**
      * 新增【请填写功能名称】
      */
+    @ApiOperation("新增土地")
     @PreAuthorize("@ss.hasPermi('jiayin:farmland:add')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.INSERT)
     @PostMapping
@@ -83,6 +89,7 @@ public class FarmLandController extends BaseController
     /**
      * 修改【请填写功能名称】
      */
+    @ApiOperation("修改土地")
     @PreAuthorize("@ss.hasPermi('jiayin:farmland:edit')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.UPDATE)
     @PutMapping
@@ -94,6 +101,7 @@ public class FarmLandController extends BaseController
     /**
      * 删除【请填写功能名称】
      */
+    @ApiOperation("删除土地")
     @PreAuthorize("@ss.hasPermi('jiayin:farmland:remove')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")

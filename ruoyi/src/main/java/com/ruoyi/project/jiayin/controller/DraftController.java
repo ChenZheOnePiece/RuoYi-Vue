@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.ruoyi.project.jiayin.domain.Draft;
 import com.ruoyi.project.jiayin.service.IDraftService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +29,7 @@ import com.ruoyi.framework.web.page.TableDataInfo;
  * @author ruoyi
  * @date 2019-12-15
  */
+@Api("草稿管理")
 @RestController
 @RequestMapping("/jiayin/draft")
 public class DraftController extends BaseController
@@ -37,12 +40,13 @@ public class DraftController extends BaseController
     /**
      * 查询【请填写功能名称】列表
      */
+    @ApiOperation("获取草稿")
     @PreAuthorize("@ss.hasPermi('jiayin:draft:list')")
     @GetMapping("/list")
     public TableDataInfo list(Draft draft)
     {
         startPage();
-        List<Draft> list = draftService.selectJiayinDraftList(draft);
+        List<Draft> list = draftService.selectDraftList(draft);
         return getDataTable(list);
     }
 
@@ -54,7 +58,7 @@ public class DraftController extends BaseController
     @GetMapping("/export")
     public AjaxResult export(Draft draft)
     {
-        List<Draft> list = draftService.selectJiayinDraftList(draft);
+        List<Draft> list = draftService.selectDraftList(draft);
         ExcelUtil<Draft> util = new ExcelUtil<Draft>(Draft.class);
         return util.exportExcel(list, "draft");
     }
@@ -62,43 +66,47 @@ public class DraftController extends BaseController
     /**
      * 获取【请填写功能名称】详细信息
      */
+    @ApiOperation("根据id获取草稿")
     @PreAuthorize("@ss.hasPermi('jiayin:draft:query')")
     @GetMapping(value = "/{id}")
     public AjaxResult getInfo(@PathVariable("id") String id)
     {
-        return AjaxResult.success(draftService.selectJiayinDraftById(id));
+        return AjaxResult.success(draftService.selectDraftById(id));
     }
 
     /**
      * 新增【请填写功能名称】
      */
+    @ApiOperation("新增草稿")
     @PreAuthorize("@ss.hasPermi('jiayin:draft:add')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.INSERT)
     @PostMapping
     public AjaxResult add(@RequestBody Draft draft)
     {
-        return toAjax(draftService.insertJiayinDraft(draft));
+        return toAjax(draftService.insertDraft(draft));
     }
 
     /**
      * 修改【请填写功能名称】
      */
+    @ApiOperation("修改草稿")
     @PreAuthorize("@ss.hasPermi('jiayin:draft:edit')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.UPDATE)
     @PutMapping
     public AjaxResult edit(@RequestBody Draft draft)
     {
-        return toAjax(draftService.updateJiayinDraft(draft));
+        return toAjax(draftService.updateDraft(draft));
     }
 
     /**
      * 删除【请填写功能名称】
      */
+    @ApiOperation("删除草稿")
     @PreAuthorize("@ss.hasPermi('jiayin:draft:remove')")
     @Log(title = "【请填写功能名称】", businessType = BusinessType.DELETE)
 	@DeleteMapping("/{ids}")
     public AjaxResult remove(@PathVariable String[] ids)
     {
-        return toAjax(draftService.deleteJiayinDraftByIds(ids));
+        return toAjax(draftService.deleteDraftByIds(ids));
     }
 }
