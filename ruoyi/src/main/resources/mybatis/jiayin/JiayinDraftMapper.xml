@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.mapper.JiayinDraftMapper">
+    
+    <resultMap type="JiayinDraft" id="JiayinDraftResult">
+        <result property="id"    column="id"    />
+        <result property="area"    column="area"    />
+        <result property="price"    column="price"    />
+        <result property="term"    column="term"    />
+        <result property="region"    column="region"    />
+        <result property="distanceRetirement"    column="distance_retirement"    />
+        <result property="landIntroduce"    column="land_introduce"    />
+        <result property="title"    column="title"    />
+        <result property="transactionType"    column="transaction_type"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="status"    column="status"    />
+        <result property="landType"    column="land_type"    />
+    </resultMap>
+
+    <sql id="selectJiayinDraftVo">
+        select id, area, price, term, region, distance_retirement, land_introduce, title, transaction_type, del_flag, create_time, update_time, status, land_type from jiayin_draft
+    </sql>
+
+    <select id="selectJiayinDraftList" parameterType="JiayinDraft" resultMap="JiayinDraftResult">
+        <include refid="selectJiayinDraftVo"/>
+        <where>  
+            <if test="area != null "> and area = #{area}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="term != null "> and term = #{term}</if>
+            <if test="region != null  and region != ''"> and region = #{region}</if>
+            <if test="distanceRetirement != null "> and distance_retirement = #{distanceRetirement}</if>
+            <if test="landIntroduce != null  and landIntroduce != ''"> and land_introduce = #{landIntroduce}</if>
+            <if test="title != null  and title != ''"> and title = #{title}</if>
+            <if test="transactionType != null "> and transaction_type = #{transactionType}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="landType != null "> and land_type = #{landType}</if>
+        </where>
+    </select>
+    
+    <select id="selectJiayinDraftById" parameterType="String" resultMap="JiayinDraftResult">
+        <include refid="selectJiayinDraftVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertJiayinDraft" parameterType="JiayinDraft">
+        insert into jiayin_draft
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null  and id != ''">id,</if>
+            <if test="area != null ">area,</if>
+            <if test="price != null ">price,</if>
+            <if test="term != null ">term,</if>
+            <if test="region != null  and region != ''">region,</if>
+            <if test="distanceRetirement != null ">distance_retirement,</if>
+            <if test="landIntroduce != null  and landIntroduce != ''">land_introduce,</if>
+            <if test="title != null  and title != ''">title,</if>
+            <if test="transactionType != null ">transaction_type,</if>
+            <if test="delFlag != null ">del_flag,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="status != null ">status,</if>
+            <if test="landType != null ">land_type,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null  and id != ''">#{id},</if>
+            <if test="area != null ">#{area},</if>
+            <if test="price != null ">#{price},</if>
+            <if test="term != null ">#{term},</if>
+            <if test="region != null  and region != ''">#{region},</if>
+            <if test="distanceRetirement != null ">#{distanceRetirement},</if>
+            <if test="landIntroduce != null  and landIntroduce != ''">#{landIntroduce},</if>
+            <if test="title != null  and title != ''">#{title},</if>
+            <if test="transactionType != null ">#{transactionType},</if>
+            <if test="delFlag != null ">#{delFlag},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="status != null ">#{status},</if>
+            <if test="landType != null ">#{landType},</if>
+         </trim>
+    </insert>
+
+    <update id="updateJiayinDraft" parameterType="JiayinDraft">
+        update jiayin_draft
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="area != null ">area = #{area},</if>
+            <if test="price != null ">price = #{price},</if>
+            <if test="term != null ">term = #{term},</if>
+            <if test="region != null  and region != ''">region = #{region},</if>
+            <if test="distanceRetirement != null ">distance_retirement = #{distanceRetirement},</if>
+            <if test="landIntroduce != null  and landIntroduce != ''">land_introduce = #{landIntroduce},</if>
+            <if test="title != null  and title != ''">title = #{title},</if>
+            <if test="transactionType != null ">transaction_type = #{transactionType},</if>
+            <if test="delFlag != null ">del_flag = #{delFlag},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="status != null ">status = #{status},</if>
+            <if test="landType != null ">land_type = #{landType},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteJiayinDraftById" parameterType="String">
+        delete from jiayin_draft where id = #{id}
+    </delete>
+
+    <delete id="deleteJiayinDraftByIds" parameterType="String">
+        delete from jiayin_draft where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
