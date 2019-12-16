@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ruoyi.project.system.mapper.JiayinHistoryRecordMapper">
+<mapper namespace="com.ruoyi.project.jiayin.mapper.HistoryRecordMapper">
     
-    <resultMap type="JiayinHistoryRecord" id="JiayinHistoryRecordResult">
+    <resultMap type="HistoryRecord" id="HistoryRecordResult">
         <result property="id"    column="id"    />
         <result property="farmLandId"    column="farm_land_id"    />
         <result property="userId"    column="user_id"    />
@@ -13,24 +13,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="updateTime"    column="update_time"    />
     </resultMap>
 
-    <sql id="selectJiayinHistoryRecordVo">
+    <sql id="selectHistoryRecordVo">
         select id, farm_land_id, user_id, del_flag, create_time, update_time from jiayin_history_record
     </sql>
 
-    <select id="selectJiayinHistoryRecordList" parameterType="JiayinHistoryRecord" resultMap="JiayinHistoryRecordResult">
-        <include refid="selectJiayinHistoryRecordVo"/>
+    <select id="selectHistoryRecordList" parameterType="HistoryRecord" resultMap="HistoryRecordResult">
+        <include refid="selectHistoryRecordVo"/>
         <where>  
             <if test="farmLandId != null  and farmLandId != ''"> and farm_land_id = #{farmLandId}</if>
             <if test="userId != null  and userId != ''"> and user_id = #{userId}</if>
         </where>
     </select>
     
-    <select id="selectJiayinHistoryRecordById" parameterType="String" resultMap="JiayinHistoryRecordResult">
-        <include refid="selectJiayinHistoryRecordVo"/>
+    <select id="selectHistoryRecordById" parameterType="String" resultMap="HistoryRecordResult">
+        <include refid="selectHistoryRecordVo"/>
         where id = #{id}
     </select>
         
-    <insert id="insertJiayinHistoryRecord" parameterType="JiayinHistoryRecord">
+    <insert id="insertHistoryRecord" parameterType="HistoryRecord">
         insert into jiayin_history_record
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null  and id != ''">id,</if>
@@ -50,7 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
     </insert>
 
-    <update id="updateJiayinHistoryRecord" parameterType="JiayinHistoryRecord">
+    <update id="updateHistoryRecord" parameterType="HistoryRecord">
         update jiayin_history_record
         <trim prefix="SET" suffixOverrides=",">
             <if test="farmLandId != null  and farmLandId != ''">farm_land_id = #{farmLandId},</if>
@@ -62,11 +62,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </update>
 
-    <delete id="deleteJiayinHistoryRecordById" parameterType="String">
+    <delete id="deleteHistoryRecordById" parameterType="String">
         delete from jiayin_history_record where id = #{id}
     </delete>
 
-    <delete id="deleteJiayinHistoryRecordByIds" parameterType="String">
+    <delete id="deleteHistoryRecordByIds" parameterType="String">
         delete from jiayin_history_record where id in 
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}

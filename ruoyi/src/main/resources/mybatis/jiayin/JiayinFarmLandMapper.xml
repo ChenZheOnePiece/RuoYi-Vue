@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ruoyi.project.system.mapper.JiayinFarmLandMapper">
+<mapper namespace="com.ruoyi.project.jiayin.mapper.FarmLandMapper">
     
-    <resultMap type="JiayinFarmLand" id="JiayinFarmLandResult">
+    <resultMap type="FarmLand" id="FarmLandResult">
         <result property="id"    column="id"    />
         <result property="area"    column="area"    />
         <result property="price"    column="price"    />
@@ -23,12 +23,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="views"    column="views"    />
     </resultMap>
 
-    <sql id="selectJiayinFarmLandVo">
+    <sql id="selectFarmLandVo">
         select id, area, price, term, region, distance_retirement, land_introduce, title, transaction_type, del_flag, create_time, update_time, status, land_type, expare_time, views from jiayin_farm_land
     </sql>
 
-    <select id="selectJiayinFarmLandList" parameterType="JiayinFarmLand" resultMap="JiayinFarmLandResult">
-        <include refid="selectJiayinFarmLandVo"/>
+    <select id="selectFarmLandList" parameterType="FarmLand" resultMap="FarmLandResult">
+        <include refid="selectFarmLandVo"/>
         <where>  
             <if test="area != null "> and area = #{area}</if>
             <if test="price != null "> and price = #{price}</if>
@@ -45,12 +45,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         </where>
     </select>
     
-    <select id="selectJiayinFarmLandById" parameterType="String" resultMap="JiayinFarmLandResult">
-        <include refid="selectJiayinFarmLandVo"/>
+    <select id="selectFarmLandById" parameterType="String" resultMap="FarmLandResult">
+        <include refid="selectFarmLandVo"/>
         where id = #{id}
     </select>
         
-    <insert id="insertJiayinFarmLand" parameterType="JiayinFarmLand">
+    <insert id="insertFarmLand" parameterType="FarmLand">
         insert into jiayin_farm_land
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null  and id != ''">id,</if>
@@ -90,7 +90,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
     </insert>
 
-    <update id="updateJiayinFarmLand" parameterType="JiayinFarmLand">
+    <update id="updateFarmLand" parameterType="FarmLand">
         update jiayin_farm_land
         <trim prefix="SET" suffixOverrides=",">
             <if test="area != null ">area = #{area},</if>
@@ -112,11 +112,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </update>
 
-    <delete id="deleteJiayinFarmLandById" parameterType="String">
+    <delete id="deleteFarmLandById" parameterType="String">
         delete from jiayin_farm_land where id = #{id}
     </delete>
 
-    <delete id="deleteJiayinFarmLandByIds" parameterType="String">
+    <delete id="deleteFarmLandByIds" parameterType="String">
         delete from jiayin_farm_land where id in 
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}

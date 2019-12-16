@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ruoyi.project.system.mapper.JiayinMineCollectMapper">
+<mapper namespace="com.ruoyi.project.jiayin.mapper.MineCollectMapper">
     
-    <resultMap type="JiayinMineCollect" id="JiayinMineCollectResult">
+    <resultMap type="MineCollect" id="mineCollectResult">
         <result property="id"    column="id"    />
         <result property="farmLandId"    column="farm_land_id"    />
         <result property="userId"    column="user_id"    />
@@ -13,24 +13,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="updateTime"    column="update_time"    />
     </resultMap>
 
-    <sql id="selectJiayinMineCollectVo">
+    <sql id="selectMineCollectVo">
         select id, farm_land_id, user_id, del_flag, create_time, update_time from jiayin_mine_collect
     </sql>
 
-    <select id="selectJiayinMineCollectList" parameterType="JiayinMineCollect" resultMap="JiayinMineCollectResult">
-        <include refid="selectJiayinMineCollectVo"/>
+    <select id="selectMineCollectList" parameterType="MineCollect" resultMap="mineCollectResult">
+        <include refid="selectMineCollectVo"/>
         <where>  
             <if test="farmLandId != null  and farmLandId != ''"> and farm_land_id = #{farmLandId}</if>
             <if test="userId != null  and userId != ''"> and user_id = #{userId}</if>
         </where>
     </select>
     
-    <select id="selectJiayinMineCollectById" parameterType="String" resultMap="JiayinMineCollectResult">
-        <include refid="selectJiayinMineCollectVo"/>
+    <select id="selectMineCollectById" parameterType="String" resultMap="mineCollectResult">
+        <include refid="selectMineCollectVo"/>
         where id = #{id}
     </select>
         
-    <insert id="insertJiayinMineCollect" parameterType="JiayinMineCollect">
+    <insert id="insertMineCollect" parameterType="MineCollect">
         insert into jiayin_mine_collect
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null  and id != ''">id,</if>
@@ -50,7 +50,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          </trim>
     </insert>
 
-    <update id="updateJiayinMineCollect" parameterType="JiayinMineCollect">
+    <update id="updateMineCollect" parameterType="MineCollect">
         update jiayin_mine_collect
         <trim prefix="SET" suffixOverrides=",">
             <if test="farmLandId != null  and farmLandId != ''">farm_land_id = #{farmLandId},</if>
@@ -62,11 +62,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </update>
 
-    <delete id="deleteJiayinMineCollectById" parameterType="String">
+    <delete id="deleteMineCollectById" parameterType="String">
         delete from jiayin_mine_collect where id = #{id}
     </delete>
 
-    <delete id="deleteJiayinMineCollectByIds" parameterType="String">
+    <delete id="deleteMineCollectByIds" parameterType="String">
         delete from jiayin_mine_collect where id in 
         <foreach item="id" collection="array" open="(" separator="," close=")">
             #{id}
